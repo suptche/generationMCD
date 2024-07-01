@@ -1,0 +1,1153 @@
+ body {
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }  overflow:hidden
+
+  .wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 2000vh;
+    background: rgba(39, 39, 39, 0.4);
+}
+.nav-logo p{
+    position: fixed;
+    top: 0%;
+    display: flex;
+    color: rgb(18, 17, 17);
+    font-size: 60px;
+    font-weight: 500;
+    width: 100%;
+    height: 100px;
+    line-height: 0px;
+    z-index: 100;
+}
+
+
+.interface {
+    display: flex;
+    justify-content: space-around;
+}
+
+.case button {
+    margin-bottom: 0; /* Supprimer la marge */
+}
+
+.nav-menu ,
+.action_has  {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    z-index: 100;
+}
+
+.nav-menu ul ,
+.action_has{
+    display: flex;
+    justify-content: center; /* Centrer les éléments horizontalement */
+    padding: 0;
+    margin: 0; /* Supprimer la marge par défaut */
+}
+
+.nav-menu ul li ,
+.action_has {
+    list-style-type: none;
+    margin-right: 70px; /* Ajouter une marge entre les éléments de la liste */
+}
+
+.nav-menu ul li .nav-btn,
+.action_has {
+    width: auto;
+    padding: 0 50px;
+    height: 60px;
+    font-weight: 500;
+    background: rgba(195, 221, 199, 0.4);
+    border: none;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.nav-menu ul li .nav-btn:hover,
+.action_has:hover {
+    background-color: #2989ef08;
+}
+
+
+button {
+    width: 130px;
+    height: 10px;
+    font-weight: 500;
+    background: rgba(19, 203, 114, 0.4);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+#squareContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Add this to your existing CSS file (mcd.css) */
+
+.square {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    background-color: white;
+    cursor: move;
+}
+
+.section-small {
+    width: 100%;
+    height: 25%;
+    background-color: rgb(248, 248, 16);
+    text-align: center;
+    line-height: 50px;
+}
+
+.section-large {
+    width: 100%;
+    height: 75%;
+    background-color: rgba(248, 248, 16, 0.315);
+}
+
+.bin-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    background-color: rgb(255, 95, 95);
+    cursor: pointer;
+    border: 3px solid rgb(255, 201, 201);
+    transition-duration: 0.3s;
+}
+
+.bin-top {
+    width: 17px;
+    transform-origin: right;
+    transition-duration: 0.3s;
+}
+
+.bin-bottom {
+    width: 15px;
+}
+
+.bin-button:hover .bin-top {
+    transform: rotate(45deg);
+}
+
+.bin-button:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.bin-button:active {
+    transform: scale(0.9);
+}
+
+.toggle-size-btn {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-size-btn:active {
+    background-color: #45a049;
+}
+
+.line {
+    position: absolute;
+    border: 1px solid black;
+    z-index: -1;
+}
+
+.btn-container {
+    position: fixed;
+    bottom: 5%; /* Ajustez selon vos besoins */
+    left: 48%;
+    transform: translateX(-50%);
+}
+
+.btn {
+    border: none;
+    width: 15em;
+    height: 5em;
+    border-radius: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #1C1A1C;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+}
+
+.sparkle {
+    fill: #AAAAAA;
+    transition: all 800ms ease;
+}
+
+.text {
+    font-weight: 600;
+    color: #AAAAAA;
+    font-size: medium;
+}
+
+.btn:hover {
+    background: linear-gradient(0deg,#A47CF3,#683FEA);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+    0px 0px 180px 0px #9917FF;
+    transform: translateY(-2px);
+}
+
+.btn:hover .text {
+    color: white;
+}
+
+.btn:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+}
+.modal {
+    display: none; /* Masquer le modal par défaut */
+    position: fixed;
+    z-index: 1;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px; /* Définir une largeur maximale */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Arrière-plan semi-transparent */
+}
+
+/* Contenu du modal */
+/* Contenu du modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largeur de la modal */
+    height: 80%; /* Hauteur de la modal */
+    max-width: 800px; /* Largeur maximale de la modal */
+    max-height: 600px; /* Hauteur maximale de la modal */
+    overflow-y: auto; /* Activer le défilement vertical si nécessaire */
+}
+
+
+
+
+/* Style pour le bouton de fermeture */
+.close {
+    color: #aaaaaa;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+
+.line-options {
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+.line-options select {
+    margin: 0 10px;
+    position: absolute;
+    pointer-events: auto; /* Allows interactions with the select elements */
+}
+.combobox {
+    position: absolute;
+}
+.combobox-left {
+    left: calc(100% + 5px); /* Adjust distance from entity1 */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+}
+.combobox-right {
+    right: calc(100% + 5px); /* Adjust distance from entity2 */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.circle {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1; /* Ensure the circle is above the line */
+}
+/* Correction de la classe modal pour améliorer la position des boutons et de l'association */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 50%; /* Horizontally centered */
+    top: 50%; /* Vertically centered */
+    transform: translate(-50%, -50%); /* Center the modal */
+    width: 300px; /* Modal width */
+    height: 200px; /* Modal height */
+    background-color: #d9f02f; /* Background color */
+    padding: 20px; /* Add some padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.modal.hidden {
+    display: none; /* Hide when 'hidden' class is applied */
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    color: rgb(14, 14, 14);
+    background-color: #f5aa1386; /* Add a background color */
+    padding: 20px; /* Add some padding */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center labels horizontally */
+    gap: 7px;
+    position: relative;
+    color: white;
+    width: 100%;
+}
+
+.container .label {
+    font-size: 15px;
+    padding-left: 10px;
+    position: absolute;
+    top: 13px;
+    transition: 0.3s;
+    pointer-events: none;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.input {
+    width: 200px;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0px 7px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    background-color: transparent;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+                -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.input:focus {
+    border: 2px solid transparent;
+    color: #fff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+                -1px -1px 6px rgba(255, 255, 255, 0.4),
+                inset 3px 3px 10px rgba(0, 0, 0, 1),
+                inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.container .input:valid ~ .label,
+.container .input:focus ~ .label {
+    transition: 0.3s;
+    padding-left: 2px;
+    transform: translate(-50%, -35px);
+}
+
+.container .input:valid,
+.container .input:focus {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+                -1px -1px 6px rgba(255, 255, 255, 0.4),
+                inset 3px 3px 10px rgba(0, 0, 0, 1),
+                inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-top: auto; /* Push buttons to the bottom */
+    padding-top: 20px; /* Space above the buttons */
+}
+
+.modal-buttons button {
+    margin: 0 10px; /* Spacing between buttons */
+}
+
+.btn-12,
+.btn-12 *,
+.btn-12 :after,
+.btn-12 :before,
+.btn-12:after,
+.btn-12:before {
+    border: 0 solid;
+    box-sizing: border-box;
+}
+
+.btn-12 {
+    -webkit-tap-highlight-color: transparent;
+    background-color: #000;
+    background-image: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    font-weight: 900;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    border-radius: 99rem;
+    border-width: 2px;
+    overflow: hidden;
+    padding: 0.8rem 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center the text horizontally */
+}
+
+.btn-12 span {
+    mix-blend-mode: difference;
+    position: relative; /* Ensure the text is positioned correctly */
+    z-index: 1; /* Ensure text is above the pseudo elements */
+}
+
+.btn-12:disabled {
+    cursor: default;
+}
+
+.btn-12:-moz-focusring {
+    outline: auto;
+}
+
+.btn-12 svg {
+    display: block;
+}
+
+.btn-12 [hidden] {
+    display: none;
+}
+
+.btn-12:after,
+.btn-12:before {
+    background: linear-gradient(
+        90deg,
+        #fff 25%,
+        transparent 0,
+        transparent 50%,
+        #fff 0,
+        #fff 75%,
+        transparent 0
+    );
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: translateY(var(--progress, 100%));
+    transition: transform 0.2s ease;
+}
+
+.btn-12:after {
+    --progress: -100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 25%,
+        #fff 0,
+        #fff 50%,
+        transparent 0,
+        transparent 75%,
+        #fff 0
+    );
+    z-index: -1;
+}
+
+.btn-12:hover:after,
+.btn-12:hover:before {
+    --progress: 0;
+} 
+
+.ellipse {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold; /* Ajout d'un style de police en gras */
+}
+
+
+.ellipse span {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Style de base pour la modal */
+/* Style de base pour la modal */
+.modal1 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 20%;
+    top: 55%;
+    width: 560px; /* Augmente la largeur de la modal */
+    height: 500px; /* Augmente la hauteur de la modal */
+    transform: translate(-50%, -50%);
+}
+.modal1 p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 69px;
+}
+/* Style du contenu de la modal */
+.modal-content1 {
+    background-color: #ffffff00;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+
+/* Style du bouton de fermeture */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style des boutons */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligner les boutons à droite */
+    margin-top: 20px; /* Marge supérieure pour séparer les boutons du contenu de la modal */
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Espacement entre les boutons */
+.spacer {
+    width: 20px;
+}
+
+/* Styles des boutons */
+.btn1 {
+    position: relative;
+    width: 150px;
+    height: 55px;
+    border-radius: 45px;
+    border: none;
+    background-color: rgb(22, 195, 152);
+    color: white;
+    box-shadow: 0px 10px 10px rgb(210, 187, 253) inset,
+                0px 5px 10px rgba(5, 5, 5, 0.212),
+                0px -10px 10px rgb(124, 54, 255) inset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Ajout de cette ligne pour centrer le bouton */
+}
+
+
+.btn1::before {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.678);
+    content: "";
+    filter: blur(1px);
+    top: 7px;
+    border-radius: 50%;
+}
+
+.btn1::after {
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.137);
+    content: "";
+    filter: blur(1px);
+    bottom: 7px;
+    border-radius: 50%;
+}
+
+.btn1:hover {
+    animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Style du tableau */
+/* Style du tableau */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    --clr: #0B6E4F;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: 300ms;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: var(--clr);
+    border-radius: .5rem;
+    animation: pulse 500ms ease-in-out;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid #E0E0E2;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 #0B6E4F90;
+        rotate: 20deg;
+    }
+
+    50% {
+        rotate: -20deg;
+    }
+
+    75% {
+        box-shadow: 0 0 0 10px #0B6E4F60;
+    }
+
+    100% {
+        box-shadow: 0 0 0 13px #0B6E4F30;
+        rotate: 0;
+    }
+}
+
+/* Custom styles for underline */
+.underline {
+    text-decoration: underline;
+}
+
+/* Style du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center; /* Centre le contenu du tableau */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+
+/* Style pour le champ de saisie avec animation wave */
+.wave-group {
+    position: relative;
+}
+
+.wave-group .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    color: #000;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+.wave-group .input:focus {
+    outline: none;
+}
+
+.wave-group .label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
+}
+
+.wave-group .label-char {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * .05s);
+}
+
+.wave-group .input:focus ~ .label .label-char,
+.wave-group .input:valid ~ .label .label-char {
+    transform: translateY(-40px);
+    font-size: 20px;
+    color: #5264AE;
+}
+
+.wave-group .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+    left: 50%;
+}
+
+.wave-group .bar:after {
+    right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+    width: 50%;
+}
+.section-large > div:last-child {
+    margin-bottom: 0;
+}
+
+/* Style spécifique pour les noms d'attributs */
+.section-large > div {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.underline {
+    text-decoration: underline;
+}
+
+
+/* Style pour le champ de saisie avec animation wave */
+.wave-group {
+    position: relative;
+}
+
+.wave-group .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    color: #000;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+.wave-group .input:focus {
+    outline: none;
+}
+
+.wave-group .label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
+}
+
+.wave-group .label-char {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * .05s);
+}
+
+.wave-group .input:focus ~ .label .label-char,
+.wave-group .input:valid ~ .label .label-char {
+    transform: translateY(-40px);
+    font-size: 20px;
+    color: #5264AE;
+}
+
+.wave-group .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+    left: 50%;
+}
+
+.wave-group .bar:after {
+    right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+    width: 50%;
+}
+.section-large > div:last-child {
+    margin-bottom: 0;
+}
+
+/* Style spécifique pour les noms d'attributs */
+.section-large > div {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+/* Hide the default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    user-select: none;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    --clr: #0B6E4F;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: 300ms;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: var(--clr);
+    border-radius: .5rem;
+    animation: pulse 500ms ease-in-out;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid #E0E0E2;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 #0B6E4F90;
+      rotate: 20deg;
+    }
+  
+    50% {
+      rotate: -20deg;
+    }
+  
+    75% {
+      box-shadow: 0 0 0 10px #0B6E4F60;
+    }
+  
+    100% {
+      box-shadow: 0 0 0 13px #0B6E4F30;
+      rotate: 0;
+    }
+  }
+  
+  /* Custom styles for underline */
+  .underline {
+    text-decoration: underline;
+  }
+  .action_has {
+    --color: 0 0% 60%;
+    --color-has: 211deg 100% 48%;
+    --sz: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--sz) * 2.5);
+    width: calc(var(--sz) * 2.5);
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.375rem;
+    border: 0.0625rem solid hsl(var(--color));
+   
+    
+    
+  }
+  
+  .has_saved:hover {
+    border-color: hsl(var(--color-has));
+  }
+  .has_liked:hover svg,
+  .has_saved:hover svg {
+    color: hsl(var(--color-has));
+  }
+  
+  .has_liked svg,
+  .has_saved svg {
+    overflow: visible;
+    height: calc(var(--sz) * 1.75);
+    width: calc(var(--sz) * 1.75);
+    --ease: cubic-bezier(0.5, 0, 0.25, 1);
+    --zoom-from: 1.75;
+    --zoom-via: 0.75;
+    --zoom-to: 1;
+    --duration: 1s;
+  }
+  
+  .has_saved:hover path[data-path="box"] {
+    transition: all 0.3s var(--ease);
+    animation: has-saved var(--duration) var(--ease) forwards;
+    fill: hsl(var(--color-has) / 0.35);
+  }
+  .has_saved:hover path[data-path="line-top"] {
+    animation: has-saved-line-top var(--duration) var(--ease) forwards;
+  }
+  .has_saved:hover path[data-path="line-bottom"] {
+    animation: has-saved-line-bottom var(--duration) var(--ease) forwards,
+      has-saved-line-bottom-2 calc(var(--duration) * 1) var(--ease)
+        calc(var(--duration) * 0.75);
+  }
+  
+  @keyframes has-saved-line-top {
+    33.333% {
+      transform: rotate(0deg) translate(1px, 2px) scale(var(--zoom-from));
+      d: path("M 3 5 L 3 8 L 3 8");
+    }
+    66.666% {
+      transform: rotate(20deg) translate(2px, -2px) scale(var(--zoom-via));
+    }
+    99.999% {
+      transform: rotate(0deg) translate(0px, 0px) scale(var(--zoom-to));
+    }
+  }
+  @keyframes has-saved-line-bottom {
+    33.333% {
+      transform: rotate(0deg) translate(1px, 2px) scale(var(--zoom-from));
+      d: path("M 17 20 L 17 13 L 7 13 L 7 20");
+    }
+    66.666% {
+      transform: rotate(20deg) translate(2px, -2px) scale(var(--zoom-via));
+    }
+    99.999% {
+      transform: rotate(0deg) translate(0px, 0px) scale(var(--zoom-to));
+      d: path("M 17 21 L 17 21 L 7 21 L 7 21");
+    }
+  }
+  @keyframes has-saved-line-bottom-2 {
+    from {
+      d: path("M 17 21 L 17 21 L 7 21 L 7 21");
+    }
+    to {
+      transform: rotate(0deg) translate(0px, 0px) scale(var(--zoom-to));
+      d: path("M 17 20 L 17 13 L 7 13 L 7 20");
+      fill: white;
+    }
+  }
+  @keyframes has-saved {
+    33.333% {
+      transform: rotate(0deg) translate(1px, 2px) scale(var(--zoom-from));
+    }
+    66.666% {
+      transform: rotate(20deg) translate(2px, -2px) scale(var(--zoom-via));
+    }
+    99.999% {
+      transform: rotate(0deg) translate(0px, 0px) scale(var(--zoom-to));
+    }
+  }

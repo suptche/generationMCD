@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface de modélisation de données</title>
+    <link rel="stylesheet" href="mcd.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>ACA</p>
+            </div>
+            <div class="interface">
+                <div class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><button class="nav-btn" id="entityBtn">Entité</button></li>
+                        <li><button class="nav-btn" id="cardinalityBtn">Relation</button></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Ajoutez votre bouton de sauvegarde ici -->
+            <button class="action_has has_saved" aria-label="save" type="button" id='saveBtn'>
+                <svg
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    fill="none"
+                >
+                    <path
+                    d="m19,21H5c-1.1,0-2-.9-2-2V5c0-1.1.9-2,2-2h11l5,5v11c0,1.1-.9,2-2,2Z"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    data-path="box"
+                    ></path>
+                    <path
+                    d="M7 3L7 8L15 8"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    data-path="line-top"
+                    ></path>
+                    <path
+                    d="M17 20L17 13L7 13L7 20"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    data-path="line-bottom"
+                    ></path>
+                </svg>
+            </button>
+        </nav>
+
+
+        <!-- Conteneur pour les carrés -->
+        <div id="squareContainer" class="canvas-container">
+            <!-- Les carrés seront ajoutés ici dynamiquement -->
+        </div>
+        <!-- Canvas pour dessiner les lignes -->
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="btn-container">
+        <button class="btn">
+            <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+                <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+            </svg>
+            <span class="text" id="generateMcdBtn" >Generate</span>
+        </button>
+    </div>
+
+   <!-- Modal pour saisir le nom de l'association -->
+<!-- Modal pour saisir le nom de l'association -->
+<div id="associationModal" class="modal hidden">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <h2>Association</h2>
+        <label for="associationName">Nom de l'association:</label>
+        <input type="text" id="associationName" name="associationName">
+        <div class="modal-buttons">
+            <button id="saveAssociationBtn" class="btn-12"><span>Ok</span></button>
+            <button id="cancelAssociationBtn" class="btn-12"><span>Annuler</span></button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Modal pour saisir le nom de l'entité -->
+    <div id="entityModal" class="modal1 hidden">
+        <div class="modal-content1">
+            <span class="close" onclick="closePage()">&times;</span>
+            <p>Entity Details</p>
+            <div class="wave-group">
+                <input required type="text" class="input" id="entityName">
+                <span class="bar"></span>
+                <label class="label">
+                    <span class="label-char" style="--index: 0">N</span>
+                    <span class="label-char" style="--index: 1">o</span>
+                    <span class="label-char" style="--index: 2">m</span>
+                    <span class="label-char" style="--index: 3"> </span>
+                    <span class="label-char" style="--index: 4">E</span>
+                    <span class="label-char" style="--index: 5">n</span>
+                    <span class="label-char" style="--index: 6">t</span>
+                    <span class="label-char" style="--index: 7">i</span>
+                    <span class="label-char" style="--index: 8">t</span>
+                    <span class="label-char" style="--index: 9">é</span>
+                </label>
+            </div>
+
+           
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom de l'attribut</th>
+                        <th>Type de données</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td>
+                            <label class="container">
+                                
+                                <input type="checkbox" class="underline-checkbox">
+                                <div class="checkmark"></div>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="small-text attribute-name">
+                        </td>
+                        <td>
+                            <select class="attribute-type">
+                                <option value="int">int</option>
+                                <option value="long">long</option>
+                                <option value="float">float</option>
+                                <option value="double">double</option>
+                                <option value="char">char</option>
+                                <option value="string">string</option>
+                                <option value="bool">bool</option>
+                                <option value="array">array</option>
+                                <option value="list">list</option>
+                                <option value="byte">byte</option>
+                                <option value="short">short</option>
+                                <option value="decimal">decimal</option>
+                                <option value="longdouble">long double</option>
+                                <option value="date">date</option>
+                            </select>
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="container">
+                                <input type="checkbox" class="underline-checkbox">
+                                <div class="checkmark"></div>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="small-text attribute-name">
+                        </td>
+                        <td>
+                            <select class="attribute-type">
+                                <option value="int">int</option>
+                                <option value="long">long</option>
+                                <option value="float">float</option>
+                                <option value="double">double</option>
+                                <option value="char">char</option>
+                                <option value="string">string</option>
+                                <option value="bool">bool</option>
+                                <option value="array">array</option>
+                                <option value="list">list</option>
+                                <option value="byte">byte</option>
+                                <option value="short">short</option>
+                                <option value="decimal">decimal</option>
+                                <option value="longdouble">long double</option>
+                                <option value="date">date</option>
+                            </select>
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="container">
+                                <input type="checkbox" class="underline-checkbox">
+                                <div class="checkmark"></div>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="small-text attribute-name">
+                        </td>
+                        <td>
+                            <select class="attribute-type">
+                                <option value="int">int</option>
+                                <option value="long">long</option>
+                                <option value="float">float</option>
+                                <option value="double">double</option>
+                                <option value="char">char</option>
+                                <option value="string">string</option>
+                                <option value="bool">bool</option>
+                                <option value="array">array</option>
+                                <option value="list">list</option>
+                                <option value="byte">byte</option>
+                                <option value="short">short</option>
+                                <option value="decimal">decimal</option>
+                                <option value="longdouble">long double</option>
+                                <option value="date">date</option>
+
+                            </select>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="container">
+                                <input type="checkbox" class="underline-checkbox">
+                                <div class="checkmark"></div>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="small-text attribute-name">
+                        </td>
+                        <td>
+                            <select class="attribute-type">
+                                <option value="int">int</option>
+                                <option value="long">long</option>
+                                <option value="float">float</option>
+                                <option value="double">double</option>
+                                <option value="char">char</option>
+                                <option value="string">string</option>
+                                <option value="bool">bool</option>
+                                <option value="array">array</option>
+                                <option value="list">list</option>
+                                <option value="byte">byte</option>
+                                <option value="short">short</option>
+                                <option value="decimal">decimal</option>
+                                <option value="longdouble">long double</option>
+                                <option value="date">date</option>
+                            </select>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="container">
+                                <input type="checkbox" class="underline-checkbox">
+                                <div class="checkmark"></div>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="small-text attribute-name">
+                        </td>
+                        <td>
+                            <select class="attribute-type">
+                                <option value="int">int</option>
+                                <option value="long">long</option>
+                                <option value="float">float</option>
+                                <option value="double">double</option>
+                                <option value="char">char</option>
+                                <option value="string">string</option>
+                                <option value="bool">bool</option>
+                                <option value="array">array</option>
+                                <option value="list">list</option>
+                                <option value="byte">byte</option>
+                                <option value="short">short</option>
+                                <option value="decimal">decimal</option>
+                                <option value="longdouble">long double</option>
+                                <option value="date">date</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="button-container">
+                <button class="btn1" id="okBtn">OK</button>
+                <span class="spacer"></span>
+                <button class="btn1" id="deleteBtn" onclick="closePage()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="mcd.js"></script>
+    
+</body>
+</html>
