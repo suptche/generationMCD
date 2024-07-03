@@ -550,19 +550,17 @@ function generateMcdJavaFile() {
             const attributeName = attributeDiv.textContent.trim();
             if (attributeName) {
                 // Trouver la ligne correspondant à l'attribut dans le modal
-                const row = document.querySelector(`#entityModal tbody tr`)
-                    const isChecked = row.querySelector('.underline-checkbox').checked;
-                    const attributeType = row.querySelector('.attribute-type').value.trim();
-
-                    
-                        attributes.push({
-                            name: attributeName,
-                            type: attributeType
-                        });
-                    
-               
+                const attributeRow = document.querySelector(`#entityModal tbody tr:nth-child(${attributes.length + 1})`);
+                const isChecked = attributeRow.querySelector('.underline-checkbox').checked;
+                const attributeType = attributeRow.querySelector('.attribute-type').value.trim();
+                attributes.push({
+                    name: attributeName,
+                    type: attributeType
+                });
             }
         });
+               
+           
 
         // Ajouter cette entité avec ses attributs à schemaData
         if (attributes.length > 0) {
